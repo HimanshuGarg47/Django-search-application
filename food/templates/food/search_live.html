@@ -1,27 +1,43 @@
-<!-- searchapp/templates/searchapp/search.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Dish Search</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
 </head>
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
 <body>
-    <h1>Search for Dishes</h1>
-    <div>
-        <label for="tags">Tags: </label>
-        <input id="tags">
-      </div>
-       
+    <div class="container mt-5">
+        <h1 class="mb-4">Search for Dishes By Name</h1>
+        <div class="form-group">
+            <input id="tags" class="form-control" placeholder="Type here..">
+        </div>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <!-- Bootstrap JS (optional, for any additional Bootstrap components) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        $( function() {
-         
-          $( "#tags" ).autocomplete({
-            delay: 500,
-            source: '{% url "search_live" %}'
-          });
-        } );
-        </script>
+        $(function() {
+            $("#tags").autocomplete({
+                delay: 500,
+                source: '{% url "search_live" %}',
+                open: function() {
+                    $('.ui-menu').addClass('dropdown-menu').removeClass('ui-widget ui-widget-content');
+                },
+            }).autocomplete("instance")._renderItem = function(ul, item) {
+                return $("<li>")
+                    .addClass("ui-menu-item")
+                    .append($("<a>").addClass("dropdown-item").text(item.label))
+                    .appendTo(ul);
+            };
+        });
+    </script>
 </body>
 </html>

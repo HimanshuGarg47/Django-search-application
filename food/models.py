@@ -22,11 +22,3 @@ class Location(models.Model):
     latitude = models.DecimalField(max_digits=20, decimal_places=11)
     longitude = models.DecimalField(max_digits=20, decimal_places=11)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='restaurant_location')
-
-# class UserRating(models.Model):
-#     user = models.CharField(max_length=120)
-#     rating = models.IntegerField()
-#     dish = models.ForeignKey(Dish, on_delete=models.CASCADE)
-
-#     def __str__(self):
-#         return self.user

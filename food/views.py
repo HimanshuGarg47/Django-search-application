@@ -12,7 +12,7 @@ def search_view(request):
         form = SearchForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['query']
-            results = Dish.objects.filter(name__icontains=query).order_by('name')
+            results = Dish.objects.filter(name__icontains=query).order_by('name')[:50]
 
     return render(request, 'food/search.html', {'form': form, 'results': results, 'query': query})
 
@@ -21,10 +21,11 @@ def search_view_live(request):
     if 'term' in request.GET:
         print(request.GET)
         query = request.GET.get('term')
+
         results = Dish.objects.filter(name__icontains=query).order_by('-name')[:20]
-        titles = [f"{dish.name} | Cost Rs. {dish.price} | Restaurant - {dish.restaurant.name}" for dish in results]
+        titles = [f"{dish.name} || Cost = Rs.{dish.price} by Restaurant - {dish.restaurant.name}" for dish in results]
         print("Successfully")
-        return JsonResponse(titles, safe=False)
+        return JsonResponse([f"Top {len(results)} results below:\n"] + titles, safe=False)
     else:
         return render(request, 'food/search_live.html')
 
