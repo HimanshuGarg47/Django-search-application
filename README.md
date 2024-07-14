@@ -56,29 +56,55 @@ Follow these steps to install the project:
 
 ![Image Description](food/images/image1.png)
 
+---
+
 ![Image Description](food/images/image2.png)
+
+---
 
 ![Image Description](food/images/image3.png)
 
+---
+
 ![Image Description](food/images/image4.png)
+
+---
 
 ![Image Description](food/images/image5.png)
 
+---
+
 ![Image Description](food/images/image6.png)
+
+---
 
 ![Image Description](food/images/image7.png)
 
+---
+
 ![Image Description](food/images/image8.png)
+
+---
 
 ![Image Description](food/images/image9.png)
 
+---
+
 ![Image Description](food/images/image10.png)
+
+---
 
 ![Image Description](food/images/image11.png)
 
+---
+
 ![Image Description](food/images/image12.png)
 
+---
+
 ![Image Description](food/images/image13.png)
+
+---
 
 ![Image Description](food/images/image14.png)
 
